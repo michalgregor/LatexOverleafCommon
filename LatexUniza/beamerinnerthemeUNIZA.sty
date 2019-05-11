@@ -27,35 +27,7 @@
 %beamer specific options
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\mode<presentation>%refers to the first four modes (beamer,handout,second and trans). That is, to all modes except the article mode
-{
-	\setbeamerfont{institute}{series=\normalsize\bf}
-	
-	\setbeamertemplate{title page}{
-	
-	\setlength{\tmpunizalength}{\paperwidth-4cm}
-	
-	\begin{textblock}{0.5}(4.5,0.75)
-	\begin{minipage}[c][2.7cm][c]{\tmpunizalength}
-		\centering
-		{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
-		\\[0.5em]
-		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}
-	\end{minipage}
-	\end{textblock}
-  
-	\vspace{0.25cm}
-	\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.5cm,rightskip=0.3cm,ht=2.5cm]{frametitle}
-	
-	\hbox{
-	\begin{beamercolorbox}[wd=2.8cm,ht=2.8cm,center,sep=0.15cm]{logobox}
-	\includegraphics[width=2.5cm]{\logoimage}
-	\end{beamercolorbox}
-
-	}
-	
-	\end{beamercolorbox}
-	
+\newcommand{\titlepagecontent}{
 	\begin{columns}
 	\begin{column}{\titletextcolwidth}
 	\begin{minipage}[c][0.7\textheight][t]{\columnwidth}
@@ -85,7 +57,39 @@
 	\vfill \mbox{}
 	\end{minipage}
 	\end{column}
-	\end{columns}	
+	\end{columns}
+}
+
+\mode<presentation>%refers to the first four modes (beamer,handout,second and trans). That is, to all modes except the article mode
+{
+	\setbeamerfont{institute}{series=\normalsize\bf}
+	
+	\setbeamertemplate{title page}{
+	
+	\setlength{\tmpunizalength}{\paperwidth-4cm}
+	
+	\begin{textblock}{0.5}(4.5,0.75)
+	\begin{minipage}[c][2.7cm][c]{\tmpunizalength}
+		\centering
+		{\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+		\\[0.5em]
+		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}
+	\end{minipage}
+	\end{textblock}
+  
+	\vspace{0.25cm}
+	\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.5cm,rightskip=0.3cm,ht=2.5cm]{frametitle}
+	
+	\hbox{
+	\begin{beamercolorbox}[wd=2.8cm,ht=2.8cm,center,sep=0.15cm]{logobox}
+	\includegraphics[width=2.5cm]{\logoimage}
+	\end{beamercolorbox}
+
+	}
+	
+	\end{beamercolorbox}
+	
+	\titlepagecontent
   }
   
   %final page

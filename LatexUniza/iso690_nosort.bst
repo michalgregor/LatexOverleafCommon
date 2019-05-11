@@ -61,6 +61,8 @@ ENTRY
     school
     series
     title
+    translatedtitle
+    language
     type
     url
 	urldate
@@ -70,6 +72,7 @@ ENTRY
     eventdate
     subtitle
     titleaddon
+    supervisor
   }
   {}
   { label }
@@ -244,7 +247,7 @@ FUNCTION {bbl.and}
 { "\bisoand"}
 
 FUNCTION {bbl.etal}
-{ "\bisoetal" }
+{ "\bisoetal." }
 
 FUNCTION {bbl.editors}
 { "\bisoeditors" }
@@ -565,6 +568,15 @@ FUNCTION {format.note}
   if$
 }
 
+FUNCTION {supervised.by}
+{ supervisor empty$
+  { "" }
+  {
+    "\bisosupervisedby{} " supervisor *
+  }
+  if$
+}
+
 FUNCTION {format.title}
 { title "title" bibinfo.check
   duplicate$ empty$ 'skip$
@@ -576,6 +588,17 @@ FUNCTION {format.title}
         if$
 
         titlecap emphasize
+
+        translatedtitle empty$ 'skip$
+        {
+            language empty$ {
+                "\bisotranslatedtitle{" * translatedtitle * "}" *
+            }{
+                "\bisotranslatedlangtitle{" * translatedtitle * "}{" * language * "}" *
+            }
+            if$
+        }
+        if$
 
         titleaddon empty$ 'skip$
         {
@@ -1261,25 +1284,6 @@ FUNCTION {manual}
   fin.entry
 }
 
-FUNCTION {mastersthesis}
-{ output.bibitem
-  format.authors "author" output.check
-  new.block
-  format.btitle
-  "title" output.check
-  new.block
-  "\bisofirstcap{\bisomathesis}" format.thesis.type output.nonnull
-  school "school" bibinfo.warn output
-  address "address" bibinfo.check output
-  format.date "year" output.check
-  format.doi output
-  new.block
-  format.url output
-  new.block
-  format.note output
-  fin.entry
-}
-
 FUNCTION {misc}
 { output.bibitem
   format.authors output
@@ -1299,6 +1303,51 @@ FUNCTION {misc}
   fin.entry
   empty.misc.check
 }
+
+FUNCTION {thesis}
+{ output.bibitem
+  format.authors "author" output.check
+  new.block
+  format.btitle
+  "title" output.check
+  new.block
+  "\bisofirstcap{\bisothesis}" format.thesis.type output.nonnull
+  school "school" bibinfo.warn output
+  institution "institution" bibinfo.warn output
+  address "address" bibinfo.check output
+  format.date "year" output.check
+  format.doi output
+  new.block
+  supervised.by output
+  new.block
+  format.url output
+  new.block
+  format.note output
+  fin.entry
+}
+
+FUNCTION {mastersthesis}
+{ output.bibitem
+  format.authors "author" output.check
+  new.block
+  format.btitle
+  "title" output.check
+  new.block
+  "\bisofirstcap{\bisomthesis}" format.thesis.type output.nonnull
+  school "school" bibinfo.warn output
+  institution "institution" bibinfo.warn output
+  address "address" bibinfo.check output
+  format.date "year" output.check
+  format.doi output
+  new.block
+  supervised.by output
+  new.block
+  format.url output
+  new.block
+  format.note output
+  fin.entry
+}
+
 FUNCTION {phdthesis}
 { output.bibitem
   format.authors "author" output.check
@@ -1306,11 +1355,14 @@ FUNCTION {phdthesis}
   format.btitle
   "title" output.check
   new.block
-  bbl.phdthesis format.thesis.type output.nonnull
+  "\bisofirstcap{\bisophdthesis}" format.thesis.type output.nonnull
   school "school" bibinfo.warn output
+  institution "institution" bibinfo.warn output
   address "address" bibinfo.check output
   format.date "year" output.check
   format.doi output
+  new.block
+  supervised.by output
   new.block
   format.url output
   new.block

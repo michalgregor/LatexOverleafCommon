@@ -138,8 +138,8 @@
 %-------------------------------------------------------
 
 % change list item spacing
-\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
-\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,listparindent=1em}
+\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt,listparindent=1em}
 
 %-------------------------------------------------------
 %               	Listings defaults.
@@ -199,6 +199,7 @@
 \def\AnnotationSecLang{#2}
 }
 
+\newcommand{\acknowledgementsName}[1]{\def\AcknowledgementsName{#1}}
 \newcommand{\acknowledgements}[1]{\def\Acknowledgements{#1}}
 
 %-------------------------------------------------------
@@ -669,7 +670,7 @@
 		
 		\vspace*{\fill}\vspace*{\fill}
 		
-		\section*{Poďakovanie}
+		\section*{\AcknowledgementsName}
 		
 		\Acknowledgements
 		

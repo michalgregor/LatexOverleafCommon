@@ -2,6 +2,17 @@
 
 \@ifundefined{bisotitlecap}{\def\bisotitlecap#1{#1}}{}
 
+\@ifundefined{bisotranslatedtitle}{\def\bisotranslatedtitle#1{%
+\ [#1]%
+}}{}
+
+\@ifundefined{bisotranslatedlangtitle}{\def\bisotranslatedlangtitle#1#2{%
+\@ifundefined{iflanguage}{%
+\ [#1]%
+}{%
+\iflanguage{#2}{}{\ [#1]}%
+}}}{}
+
 \@ifundefined{bisomacro}{
 \newcommand{\bisomacro}[2]{
    \@ifundefined{biso#1}{
@@ -10,7 +21,7 @@
 }}{}
 
 \bisomacro{and}{and}
-\bisomacro{etal}{et~al.}
+\bisomacro{etal}{et~al}
 \bisomacro{editors}{editors}
 \bisomacro{editor}{editor}
 \bisomacro{edby}{edited by}
@@ -23,9 +34,12 @@
 \bisomacro{page}{p.}
 \bisomacro{chapter}{chap.}
 \bisomacro{techrep}{Tech. Rep.}
+\bisomacro{bathesis}{bachelor's thesis}
 \bisomacro{mthesis}{master's thesis}
 \bisomacro{mathesis}{\bisomthesis}
+\bisomacro{thesis}{thesis}
 \bisomacro{phdthesis}{Ph.D. thesis}
+\bisomacro{supervisedby}{Supervised by}
 \bisomacro{availablefrom}{Available from}
 \bisomacro{cited}{cit.}
 \bisomacro{jan}{Jan.}

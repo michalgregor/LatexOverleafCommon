@@ -5,7 +5,7 @@
 
 \newcommand{\bisoaddtolang}[2]{\AfterBabelLanguage{#1}{\ifcsname extras#1\endcsname \expandafter\addto\csname extras#1\endcsname{#2}\fi}}
 
-\bisoaddtolang{english}{
+\bisoaddtolang{english}{%
     \def\bisoand{and}%
     \def\bisoetal{et~al.}%
     \def\bisoeditors{editors}%
@@ -20,8 +20,11 @@
     \def\bisopage{p.}%
     \def\bisochapter{chap.}%
     \def\bisotechrep{Tech. Rep.}%
+    \def\bisobathesis{bachelor's thesis}%
     \def\bisomthesis{master's thesis}%
+    \def\bisothesis{thesis}%
     \def\bisophdthesis{Ph.D. thesis}%
+    \def\bisosupervisedby{Supervised by}%
     \def\bisoavailablefrom{Available from}%
     \def\bisocited{cit.}%
     \def\bisojan{Jan.}%
@@ -38,7 +41,7 @@
     \def\bisodec{Dec.}%
 }
 
-\bisoaddtolang{slovak}{
+\bisoaddtolang{slovak}{%
 	\def\bisoand{a}%
 	\def\bisoetal{a kol.}%
 	\def\bisoeditors{ed.}%
@@ -53,8 +56,11 @@
 	\def\bisopage{s.}%
 	\def\bisochapter{kap.}%
 	\def\bisotechrep{tech. spr.}%
+    \def\bisobathesis{bak. pr.}%
 	\def\bisomthesis{dipl. pr.}%
 	\def\bisophdthesis{diz. pr.}%
+    \def\bisothesis{záv. pr.}%
+    \def\bisosupervisedby{Vedúci práce}%
 	\def\bisoavailablefrom{dostupné z}%
 	\def\bisocited{cit.}%
 	\def\bisojan{jan.}%
