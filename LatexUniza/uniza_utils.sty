@@ -133,12 +133,17 @@
 \regtotcounter{totalchapters}
 \regtotcounter{appendixchapters}
 
+% protect appendix def under beamer
+\ifunizautils@beamer\else
+
 \preto\appendix{%
   % save the number of true chapters
   \setcounter{truechapters}{\value{chapter}}%
   % reset the number of chapters
   \setcounter{appendixchapters}{0}%
 }
+
+\fi
 
 % a patch for longtable when using totalcount
 \newif\ifLT@nocaption
