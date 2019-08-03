@@ -247,7 +247,7 @@ FUNCTION {bbl.and}
 { "\bisoand"}
 
 FUNCTION {bbl.etal}
-{ "\bisoetal." }
+{ "\bisoetal" }
 
 FUNCTION {bbl.editors}
 { "\bisoeditors" }
