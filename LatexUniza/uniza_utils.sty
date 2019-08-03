@@ -41,6 +41,11 @@
 	\@openrightfalse
 }
 
+% defauls for listing and minted paths
+\newcommand{\mintedoutputdir}{.}
+\newcommand{\mintedoutputdirslash}{./}
+\newcommand{\listingspath}{}
+
 %-----------------------------------------------------------
 %			if \includeauxprefix is set, prefix
 %				  aux filenames with it
@@ -470,19 +475,18 @@
 % localization
 \addtolang{slovak}{\renewcommand{\opensourcecode}{[otvoriť zdrojový kód]}\renewcommand{\listingname}{\uniza@listingname}}
 
+% \newcommand{\mintedoutputdir}{.}
+% \newcommand{\mintedoutputdirslash}{./}
+% \newcommand{\listingspath}{}
+
 \@ifundefined{auxfiles}
-{
-	\newcommand{\mintedoutputdir}{}
-	\newcommand{\mintedoutputdirslash}{}
-	\newcommand{\listingspath}{}
-} {
+{}{
 	\ifargoutempty{\auxfiles}{
 		\renewcommand{\auxfiles}{auxfiles}
 	}{}
 	
-	\newcommand{\mintedoutputdir}{\auxfiles}
-	\newcommand{\mintedoutputdirslash}{\auxfiles/}
-	\newcommand{\listingspath}{}
+	\renewcommand{\mintedoutputdir}{\auxfiles}
+	\renewcommand{\mintedoutputdirslash}{\auxfiles/}
 }
 
 \newcommand{\opensourcecode}{[open source code]}
