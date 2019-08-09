@@ -200,7 +200,11 @@
 }
 
 \newcommand{\acknowledgementsName}[1]{\def\AcknowledgementsName{#1}}
+\acknowledgementsName{Poďakovanie}
 \newcommand{\acknowledgements}[1]{\def\Acknowledgements{#1}}
+
+\newcommand{\appendices}[1]{\def\Appendices{#1}}
+\appendices{Prílohová časť}
 
 %-------------------------------------------------------
 %                Figure numbering, ordering
@@ -592,77 +596,77 @@
 \clearpage
 }
 
-% makeannotation
-\newlength{\annotationSpacing}
-\setlength{\annotationSpacing}{0.6cm}
-
-\newcommand{\makeannotation}{
-\clearpage
-\begingroup
-	\titlespacing*{\subsubsection}{0cm}{0cm}{0cm}
-
-	\setlength{\parindent}{0pt}
-	\begingroup
-		\centering
-		\singlespacing
-		
-		\Large Žilinská univerzita v Žiline, Elektrotechnická fakulta \\
-		Katedra riadiacich a informačných systémov
-	
-		\vspace{\annotationSpacing}
-	
-		\Large \MakeUppercase{Anotačný záznam -- \Doctype}
-	
-	\endgroup
-	
-	\vspace{\annotationSpacing}
-	
-	\begingroup
-		\normalsize
-		
-		\textbf{Meno a priezvisko:} \Author \hfill \textbf{Akademický rok: \AcademicYear} \\
-		\textbf{Názov práce:} \Title
-		
-		\vspace{\annotationSpacing}
-		
-		\begin{tabular}{@{}p{0.33\textwidth}p{0.33\textwidth}p{0.33\textwidth}}
-		\textbf{Počet strán:} \theTotPages&
-		\textbf{Počet obrázkov:} \totalfigures &
-		\textbf{Počet tabuliek:} \totaltables \\
-		
-		\textbf{Počet kapitol:} \total{truechapters} &
-		\textbf{Počet príloh:} \total{appendixchapters} &
-		\textbf{Počet použit. lit.:} \total{citenum}
-		\end{tabular}
-		
-		\vskip 1cm minus 1cm
-		\subsubsection*{\AnnotationName:}
-		\Annotation
-		
-		\vskip 1cm minus 1cm
-		\subsubsection*{\AnnotationNameSecLang:}
-		\AnnotationSecLang
-
-		\vskip 1cm minus 1cm
-		\subsubsection*{\KeywordsName:}
-		\Keywords
-		
-		\vskip 1cm minus 1cm
-		
-		\@ifundefined{Supervisor}{}{%
-		\textbf{Vedúci práce:} \Supervisor \\}
-		\@ifundefined{Consultant}{}{%
-		\textbf{Konzultant:} \Consultant \\}
-		\@ifundefined{Reviewer}{}{%
-		\textbf{Recenzent:} \Reviewer}
-		
-		\vskip 1cm minus 1cm
-		
-		\textbf{Dátum odovzdania práce:} \Date
-	\endgroup
-\endgroup
-\clearpage
-}
+%% makeannotation
+%\newlength{\annotationSpacing}
+%\setlength{\annotationSpacing}{0.6cm}
+%
+%\newcommand{\makeannotation}{
+%\clearpage
+%\begingroup
+%	\titlespacing*{\subsubsection}{0cm}{0cm}{0cm}
+%
+%	\setlength{\parindent}{0pt}
+%	\begingroup
+%		\centering\Large
+%		
+%		\textbf{\MakeUppercase{\University}}
+%		
+%		\MakeUppercase{\Faculty}
+%	
+%		\vspace{\annotationSpacing}
+%	
+%		\Large \MakeUppercase{Anotačný záznam -- \Doctype}
+%	
+%	\endgroup
+%	
+%	\vspace{\annotationSpacing}
+%	
+%	\begingroup
+%		\normalsize
+%		
+%		\textbf{Meno a priezvisko:} \Author \hfill \textbf{Akademický rok: \AcademicYear} \\
+%		\textbf{Názov práce:} \Title
+%		
+%		\vspace{\annotationSpacing}
+%		
+%		\begin{tabular}{@{}p{0.33\textwidth}p{0.33\textwidth}p{0.33\textwidth}}
+%		\textbf{Počet strán:} \theTotPages&
+%		\textbf{Počet obrázkov:} \totalfigures &
+%		\textbf{Počet tabuliek:} \totaltables \\
+%		
+%		\textbf{Počet kapitol:} \total{truechapters} &
+%		\textbf{Počet príloh:} \total{appendixchapters} &
+%		\textbf{Počet použit. lit.:} \total{citenum}
+%		\end{tabular}
+%		
+%		\vskip 1cm minus 1cm
+%		\subsubsection*{\AnnotationName:}
+%		\Annotation
+%		
+%		\vskip 1cm minus 1cm
+%		\subsubsection*{\AnnotationNameSecLang:}
+%		\AnnotationSecLang
+%
+%		\vskip 1cm minus 1cm
+%		\subsubsection*{\KeywordsName:}
+%		\Keywords
+%		
+%		\vskip 1cm minus 1cm
+%		
+%		\@ifundefined{Supervisor}{}{%
+%		\textbf{Vedúci práce:} \Supervisor \\}
+%		\@ifundefined{Consultant}{}{%
+%		\textbf{Konzultant:} \Consultant \\}
+%		\@ifundefined{Reviewer}{}{%
+%		\textbf{Recenzent:} \Reviewer}
+%		
+%		\vskip 1cm minus 1cm
+%		
+%		\textbf{Dátum odovzdania práce:} \Date
+%	\endgroup
+%\endgroup
+%\clearpage
+%}
 
 \newcommand{\makeacknowledgements}{
 	\@ifundefined{Acknowledgements}{}{
@@ -685,45 +689,53 @@
 	\thispagestyle{empty}
 	
 	\phantomsection
-	\addcontentsline{toc}{part}{Prílohová časť}
+	\addcontentsline{toc}{part}{\Appendices}
 		
 	\begingroup
 		\setlength{\parindent}{0pt}
 		\begingroup
-			\centering
+			\centering\Large
 			
-			\Large Žilinská univerzita v Žiline
+			\textbf{\MakeUppercase{\University}}
 			
-			\large Elektrotechnická fakulta
+			\MakeUppercase{\Faculty}
 		
 		\endgroup
 		
-		\vspace{2.55cm}
-		
+		\vfill
+			
 		\begingroup
-			\large \DocID
+			\centering
+			\huge \MakeUppercase{\Appendices}
+			
 		\endgroup
 		
 		\vfill
 		
 		\begingroup
-			\centering
-			
-			\Large \MakeUppercase{\Title}
-			
-			\normalsize \MakeUppercase{Prílohová časť}
+		\centering\Large	
+		
+		\MakeUppercase{\Author}
+		
+		\textbf{\Title}
+		
+		\@ifundefined{Subtitle}{}{{\large \textbf{\Subtitle}}}
 		
 		\endgroup
 		
 		\vfill
 		
 		\begingroup
-			\large 2017
+			\centering\normalsize
+			\@ifundefined{Supervisor}{}{%
+			Vedúci práce: \Supervisor}
 			
-			\Author
+			\@ifundefined{DocID}{}{%
+			Evidenčné číslo: \DocID}
+			
+			\Location, \SubmissionYear
+			
 		\endgroup
-		
-		\clearpage
 	
 	\endgroup
 
