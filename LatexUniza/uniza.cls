@@ -203,8 +203,12 @@
 \acknowledgementsName{Poďakovanie}
 \newcommand{\acknowledgements}[1]{\def\Acknowledgements{#1}}
 
-\newcommand{\appendices}[1]{\def\Appendices{#1}}
-\appendices{Prílohová časť}
+%-------------------------------------------------------
+% 	Localized names
+%-------------------------------------------------------
+
+\newcommand{\appendices}{Appendices}
+\addtolang{slovak}{\renewcommand{\appendices}{Prílohová časť}}
 
 %-------------------------------------------------------
 %                Figure numbering, ordering
@@ -689,7 +693,7 @@
 	\thispagestyle{empty}
 	
 	\phantomsection
-	\addcontentsline{toc}{part}{\Appendices}
+	\addcontentsline{toc}{part}{\appendices}
 		
 	\begingroup
 		\setlength{\parindent}{0pt}
@@ -706,7 +710,7 @@
 			
 		\begingroup
 			\centering
-			\huge \MakeUppercase{\Appendices}
+			\huge \MakeUppercase{\appendices}
 			
 		\endgroup
 		
