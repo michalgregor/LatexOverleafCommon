@@ -21,6 +21,10 @@
 }
 \DeclareComplementaryOption{minted}{nominted}
 
+\DeclareBoolOption{hyperfootnotes}{
+  \PassOptionsToPackage{\CurrentOption}{hyperref}
+}
+
 \DeclareBoolOption{printversion}{
   \PassOptionsToPackage{\CurrentOption}{uniza_utils}
 }
