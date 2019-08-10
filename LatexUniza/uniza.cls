@@ -337,7 +337,7 @@
   \fancyhead{} % remove everything
   \fancyfoot{} % remove everything
   \lhead{\FacultyShort}
-  \rhead{\MakeUppercase{Prílohová čast}}
+  \rhead{\MakeUppercase{\appendices}}
   \rfoot{\thepage}
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
@@ -379,6 +379,13 @@
 \defgeometry{appendix}{}
 
 \fi % nogeometry
+
+\AtEndPreamble{
+% automatically apply the appendix pagestyle
+\appto{\appendix}{
+	\pagestyle{appendix}
+}
+}
 
 % we apply the defaults here
 \pagestyle{default}
@@ -455,7 +462,7 @@
 \begingroup
 	\setlength{\parindent}{0pt}
 	\begingroup
-		\centering\Large
+		\balancedcenter\Large
 		
 		\textbf{\MakeUppercase{\University}}
 		
@@ -466,7 +473,7 @@
 	\vfill
 	
 	\begingroup
-		\centering
+		\balancedcenter
 		\huge \MakeUppercase{\Doctype}
 		
 	\endgroup
@@ -474,7 +481,7 @@
 	\vfill
 	
 	\begingroup
-	\centering\Large	
+	\balancedcenter\Large	
 	
 	\MakeUppercase{\Author}
 	
@@ -487,7 +494,7 @@
 	\vfill
 
 	\begingroup
-		\centering\normalsize
+		\balancedcenter\normalsize
 		\@ifundefined{Supervisor}{}{%
 		Vedúci práce: \Supervisor}
 		
@@ -514,7 +521,7 @@
 \begingroup
 	\setlength{\parindent}{0pt}
 	\begingroup
-		\centering\Large
+		\balancedcenter\Large
 		
 		\textbf{\MakeUppercase{\University}}
 		
@@ -525,7 +532,7 @@
 	\vfill
 		
 	\begingroup
-		\centering
+		\balancedcenter
 		\huge \MakeUppercase{\Doctype}
 		
 	\endgroup
@@ -533,7 +540,7 @@
 	\vfill
 	
 	\begingroup
-	\centering\Large	
+	\balancedcenter\Large	
 	
 	\MakeUppercase{\Author}
 	
@@ -567,7 +574,7 @@
 	}{}%
 		
 	\begingroup
-	\centering
+	\balancedcenter
 	
 	\Location, \SubmissionYear
 
@@ -698,7 +705,7 @@
 	\begingroup
 		\setlength{\parindent}{0pt}
 		\begingroup
-			\centering\Large
+			\balancedcenter\Large
 			
 			\textbf{\MakeUppercase{\University}}
 			
@@ -709,7 +716,7 @@
 		\vfill
 			
 		\begingroup
-			\centering
+			\balancedcenter
 			\huge \MakeUppercase{\appendices}
 			
 		\endgroup
@@ -717,7 +724,7 @@
 		\vfill
 		
 		\begingroup
-		\centering\Large	
+		\balancedcenter\Large	
 		
 		\MakeUppercase{\Author}
 		
@@ -730,7 +737,7 @@
 		\vfill
 		
 		\begingroup
-			\centering\normalsize
+			\balancedcenter\normalsize
 			\@ifundefined{Supervisor}{}{%
 			Vedúci práce: \Supervisor}
 			
