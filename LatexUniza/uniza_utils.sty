@@ -879,7 +879,6 @@
 %-----------------------------------------------------------
 
 \newcommand{\unpart}[2][]{
-	\clearpage
 	\phantomsection
 	\ifthenelse{\equal{#1}{}}{
 		\addcontentsline{toc}{part}{#2}
@@ -896,7 +895,6 @@
 %-----------------------------------------------------------
 
 \newcommand{\unchapter}[2][]{
-	\clearpage
 	\phantomsection
 	\ifthenelse{\equal{#1}{}}{
 		\chapter*{#2}
@@ -911,14 +909,12 @@
 
 % Only produce the mark without producing the actual heading.
 \newcommand{\unchaptermark}[1]{
-	\clearpage
 	\phantomsection
 	\markboth{\MakeUppercase{#1}}{}
 	\addcontentsline{toc}{chapter}{#1}
 }
 
 \newcommand{\unsection}[2][]{
-	\clearpage
 	\phantomsection
 	\ifthenelse{\equal{#1}{}}{
 		\section*{#2}
@@ -933,10 +929,29 @@
 
 % Only produce the mark without producing the actual heading.
 \newcommand{\unsectionmark}[1]{
-	\clearpage
 	\phantomsection
 	\markboth{\MakeUppercase{#1}}{}
 	\addcontentsline{toc}{section}{#1}
+}
+
+\newcommand{\unsubsection}[2][]{
+	\phantomsection
+	\ifthenelse{\equal{#1}{}}{
+		\subsection*{#2}
+		\markboth{\MakeUppercase{#2}}{}
+		\addcontentsline{toc}{subsection}{#2}
+	}{
+		\markboth*{#2}
+		\markboth{\MakeUppercase{#1}}{}
+		\addcontentsline{toc}{subsection}{#1}
+	}
+}
+
+% Only produce the mark without producing the actual heading.
+\newcommand{\unsubsectionmark}[1]{
+	\phantomsection
+	\markboth{\MakeUppercase{#1}}{}
+	\addcontentsline{toc}{subsection}{#1}
 }
 
 %-----------------------------------------------------------
