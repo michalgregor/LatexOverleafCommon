@@ -385,6 +385,10 @@
 \fi % nogeometry
 
 \AtEndPreamble{
+% fixes links to appendix chapters
+\preto{\appendix}{
+	\renewcommand{\theHchapter}{A\arabic{chapter}}
+}
 % automatically apply the appendix pagestyle
 \appto{\appendix}{
 	\pagestyle{appendix}

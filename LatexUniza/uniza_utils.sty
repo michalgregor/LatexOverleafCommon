@@ -5,6 +5,8 @@
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=unizautils, prefix=unizautils@}
 
+\PassOptionsToPackage{unicode}{hyperref}
+
 \DeclareBoolOption{printversion}
 \DeclareComplementaryOption{noprintversion}{printversion}
 
@@ -178,7 +180,7 @@
 %-----------------------------------------------------------
 \else
 
-\RequirePackage[unicode]{hyperref}
+\RequirePackage{hyperref}
 %\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue}
 
 \RequirePackage[usenames,dvipsnames,table]{xcolor}
@@ -1397,6 +1399,11 @@ inner ysep=10pt
     \fi
     \@mainmatterfalse
     \pagestyle{backmatter}
+}
+
+\preto{\appendix}{
+	% fixes links to appendix chapters
+	\renewcommand{\theHchapter}{A\arabic{chapter}}
 }
 
 \appto{\appendix}{
