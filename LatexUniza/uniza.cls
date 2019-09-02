@@ -460,6 +460,13 @@
 %               Title page and cover macros
 %-------------------------------------------------------
 
+\newcommand{\SupervisorName}{Vedúci práce}
+\newcommand{\DocIdName}{Evidenčné číslo}
+\newcommand{\StudyProgrammeName}{Študijný program}
+\newcommand{\FieldOfStudyName}{Študijný odbor}
+\newcommand{\SupervisorInstName}{Školiace pracovisko}
+\newcommand{\ConsultantName}{Konzultant}
+
 % makecover
 \newcommand{\makecover}{
 \clearpage
@@ -502,10 +509,10 @@
 	\begingroup
 		\balancedcenter\normalsize
 		\@ifundefined{Supervisor}{}{%
-		Vedúci práce: \Supervisor}
+		\SupervisorName: \Supervisor}
 		
 		\@ifundefined{DocID}{}{%
-		Evidenčné číslo: \DocID}
+		\DocIdName: \DocID}
 		
 		\Location, \SubmissionYear
 		
@@ -514,10 +521,6 @@
 \endgroup
 \clearpage
 }
-
-\newcommand{\StudyProgrammeName}{Študijný program}
-\newcommand{\FieldOfStudyName}{Študijný odbor}
-\newcommand{\SupervisorInstName}{Školiace pracovisko}
 
 % maketitle
 \renewcommand{\maketitle}{
@@ -568,9 +571,9 @@
 	\SupervisorInst
 	\end{alignedpage}}
 	\@ifundefined{Supervisor}{}{%
-	Vedúci práce: \Supervisor \\}
+	\SupervisorName: \Supervisor \\}
 	\@ifundefined{Consultant}{}{%
-	Konzultant: \Consultant \\}
+	\ConsultantName: \Consultant \\}
 	
 	% fix spacing if there was nothing after alignedpage
 	\@ifundefined{Supervisor}{%
@@ -745,10 +748,10 @@
 		\begingroup
 			\balancedcenter\normalsize
 			\@ifundefined{Supervisor}{}{%
-			Vedúci práce: \Supervisor}
+			\SupervisorName: \Supervisor}
 			
 			\@ifundefined{DocID}{}{%
-			Evidenčné číslo: \DocID}
+			\DocIdName: \DocID}
 			
 			\Location, \SubmissionYear
 			
