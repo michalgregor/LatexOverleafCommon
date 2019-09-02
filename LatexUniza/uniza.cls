@@ -4,9 +4,6 @@
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=uniza, prefix=uniza@}
 
-% defaults for book
-\PassOptionsToClass{a4paper,oneside,openany}{book}
-
 \DeclareBoolOption{nofonts}
 \DeclareComplementaryOption{fonts}{nofonts}
 
@@ -286,16 +283,17 @@
 \fancypagestyle{default}{
   \pagenumbering{arabic}
   \fancyhf{}% remove everything
-  \rfoot{\thepage}
-  \lhead{\FacultyShort}
-  \rhead{\MakeUppercase{\Doctype}}
+  
+  \fancyfoot[RO,LE]{\thepage}
+  \fancyhead[LO,RE]{\FacultyShort}
+  \fancyhead[RO,LE]{\MakeUppercase{\Doctype}}
+  
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
   
   \fancypagestyle{plain}{
     \fancyhf{}% remove everything
-    \rfoot{\thepage}
-%    \rhead{\leftmark}
+    \fancyfoot[RO,LE]{\thepage}
     \renewcommand{\headrulewidth}{0pt} % remove lines as well
     \renewcommand{\footrulewidth}{0pt}
   }
@@ -307,14 +305,12 @@
   \fancyfoot{} % remove everything
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
-%  \rhead{\begin{flushright}\thepage\end{flushright}}
   
   \fancypagestyle{plain} {
 	\fancyhead{} % remove everything
 	\fancyfoot{} % remove everything
 	\renewcommand{\headrulewidth}{0pt} % remove lines as well
 	\renewcommand{\footrulewidth}{0pt}
-%	\rhead{\begin{flushright}\thepage\end{flushright}}
   }
 }
 
@@ -324,14 +320,14 @@
   \fancyfoot{} % remove everything
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
-  \rfoot{\thepage}
+  \fancyfoot[RO,LE]{\thepage}
   
   \fancypagestyle{plain} {
 	\fancyhead{} % remove everything
 	\fancyfoot{} % remove everything
 	\renewcommand{\headrulewidth}{0pt} % remove lines as well
 	\renewcommand{\footrulewidth}{0pt}
-	\rfoot{\thepage}
+	\fancyfoot[RO,LE]{\thepage}
   }
 }
 
@@ -340,16 +336,18 @@
   \pagenumbering{Roman}
   \fancyhead{} % remove everything
   \fancyfoot{} % remove everything
-  \lhead{\FacultyShort}
-  \rhead{\MakeUppercase{\appendices}}
-  \rfoot{\thepage}
+	
+  \fancyfoot[RO,LE]{\thepage}
+  \fancyhead[LO,RE]{\FacultyShort}
+  \fancyhead[RO,LE]{\MakeUppercase{\Doctype}}
+  
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
   
   \fancypagestyle{plain} {
 	\fancyhead{} % remove everything
 	\fancyfoot{} % remove everything
-	\rfoot{\thepage}
+	\fancyfoot[RO,LE]{\thepage}
 	\renewcommand{\headrulewidth}{0pt} % remove lines as well
 	\renewcommand{\footrulewidth}{0pt}
   }
@@ -360,14 +358,14 @@
   \pagenumbering{Roman}
   \fancyhead{} % remove everything
   \fancyfoot{} % remove everything
-  \rfoot{\thepage}
+  \fancyfoot[RO,LE]{\thepage}
   \renewcommand{\headrulewidth}{0pt} % remove lines as well
   \renewcommand{\footrulewidth}{0pt}
   
   \fancypagestyle{plain} {
 	\fancyhead{} % remove everything
 	\fancyfoot{} % remove everything
-	\rfoot{\thepage}
+	\fancyfoot[RO,LE]{\thepage}
 	\renewcommand{\headrulewidth}{0pt} % remove lines as well
 	\renewcommand{\footrulewidth}{0pt}
   }
