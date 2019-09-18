@@ -19,7 +19,7 @@
 \DeclareComplementaryOption{minted}{nominted}
 
 \DeclareBoolOption{hyperfootnotes}{
-  \PassOptionsToPackage{\CurrentOption}{hyperref}
+  \PassOptionsToPackage{\CurrentOption}{uniza_utils}
 }
 
 \DeclareBoolOption{printversion}{

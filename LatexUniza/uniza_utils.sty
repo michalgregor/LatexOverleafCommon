@@ -5,6 +5,10 @@
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{family=unizautils, prefix=unizautils@}
 
+\DeclareBoolOption{hyperfootnotes}{
+  \PassOptionsToPackage{\CurrentOption}{hyperref}
+}
+
 \PassOptionsToPackage{unicode}{hyperref}
 
 \DeclareBoolOption{printversion}
